@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--引入外部属性文件-->
+    <properties resource="db.properties"/>
+
+    <!--环境集合属性对象-->
+    <environments default="development">
+        <!--环境子属性对象-->
+        <environment id="development">
+            <!--使用JDBC管理事务-->
+            <transactionManager type="JDBC"/>
+            <!--数据库连接池-->
+            <dataSource type="POOLED">
+                <property name="username" value="${user}"/>
+                <property name="password" value="${password}"/>
+                <property name="url" value="${url}"/>
+                <property name="driver" value="${driver}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--引入外部mapper文件-->
+    <mappers>
+        <package name="com.huge.mapper"/>
+    </mappers>
+</configuration>
